@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.nominee-list,
+.movie-list {
+  min-width: 40vw;
+  margin: 20px;
+  background: rgb(157, 157, 214);
+  border: 2px solid black;
+}
+.search-section {
+  display: flex;
+  background-color: grey;
+}
