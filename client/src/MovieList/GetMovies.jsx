@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import NomineeList from "../NomineeList/NomineeList";
 import Movies from "../Movies";
+import Form from "../services/Form";
 import Popup from "../Popup";
 
 const GetMovies = () => {
@@ -29,7 +30,7 @@ const GetMovies = () => {
   }
 
   useEffect(() => {
-    movieArr.map((movie) => {
+    movieArr?.map((movie) => {
       if (nominees.includes(movie.Title) === false) {
         document.querySelector(`.${movie.imdbID}`).disabled = false;
       } else {
@@ -94,6 +95,7 @@ const GetMovies = () => {
           <ul className="nominees">
             <NomineeList nominees={nominees} setNominees={setNominees} />
           </ul>
+          <Form nominees={nominees} />
         </div>
       </section>
     </>
