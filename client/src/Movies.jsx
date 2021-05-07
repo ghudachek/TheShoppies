@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Popup from "./Popup";
 
 const Movies = (props) => {
   const [chosen, setChosen] = useState(false);
@@ -12,12 +13,15 @@ const Movies = (props) => {
     console.log(props.nominees);
     if (props.nominees.length === 0) {
       props.setNominees((curr) => [...curr, props.movie.Title]);
-    } else {
+    } else if (props.nominees.length < 5) {
       if (props.nominees.includes(props.movie.Title) === false) {
         return props.setNominees((curr) => [...curr, props.movie.Title]);
-      } else {
-        setChosen(true);
       }
+    } else if (props.nominees.length === 5) {
+      console.log("you  made it to five");
+      props.togglePopup();
+    } else {
+      setChosen(true);
     }
   }
   return (

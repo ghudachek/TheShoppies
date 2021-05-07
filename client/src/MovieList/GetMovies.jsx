@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import NomineeList from "../NomineeList/NomineeList";
 import Movies from "../Movies";
+import Popup from "../Popup";
+
 const GetMovies = () => {
   const DOMAIN = `https://www.omdbapi.com/`;
   const API_KEY = "e75418f0";
@@ -10,6 +12,11 @@ const GetMovies = () => {
   const [movieArr, setMovieArr] = useState([]);
   const [input, setInput] = useState();
   const [nominees, setNominees] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   async function getMovies(input) {
     try {
@@ -51,15 +58,29 @@ const GetMovies = () => {
                   nominees={nominees}
                   movieArr={movieArr}
                   setMovieArr={setMovieArr}
+                  togglePopup={togglePopup}
                 />
               );
             })}
           </ul>
         </div>
+        <div>
+          {isOpen && (
+            <Popup
+              content={
+                <>
+                  <b>Design your Popup</b>
+                  <p>You've reached you limit of 5 nominations!</p>
+                </>
+              }
+              handleClose={togglePopup}
+            />
+          )}
+        </div>
         <div className="nominee-list">
           <h1>Your Nominees</h1>
           <ul className="nominees">
-            <NomineeList nominees={nominees} />
+            <NomineeList nominees={nominees} setNominees={setNominees} />
           </ul>
         </div>
       </section>
