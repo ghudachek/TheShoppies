@@ -32,15 +32,16 @@ const Form = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="nom-form" onSubmit={handleSubmit}>
       <label htmlFor="name">Your Name</label>
       <input
+        className="name-input"
         name="name"
-        placeholder="name(or Anon)"
+        placeholder="or Anon"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <button>Send/Save Data</button>
+      <button>Send/Save Nominations</button>
 
       {isOpen && (
         <Popup

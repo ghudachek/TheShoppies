@@ -4,14 +4,19 @@
   text-align: center;
   background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
-
+header {
+  display: flex;
+  margin-left: 10px;
+}
+.popcorn {
+  width: 80px;
+}
 #shoppies {
   text-align: left;
   color: white;
-  font-size: 40px;
-  margin-left: 20px;
+  font-size: 30px;
 }
 li {
   list-style-type: decimal;
@@ -23,30 +28,35 @@ li {
 
 .nominee-list,
 .movie-list {
-  min-width: 40vw;
+  min-width: 35vw;
   margin: 20px;
   background: rgba(255, 255, 255, 0.616);
-  box-shadow: 0px 0px 8px #e5e6e9;
+  box-shadow: 0px 0px 8px #141414;
   text-align: left;
   padding-left: 25px;
+  border-radius: 2px;
 }
 
 .search-section {
-  display: block;
-  width: 81.5vw;
   background-color: white;
+  background-image: url("https://images.unsplash.com/photo-1512149074996-e923ac45be6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+  background-position: center;
+  background-size: cover;
+  display: block;
+  width: 75vw;
+  color: white;
   align-self: center;
   padding: 10px;
   text-align: left;
-  box-shadow: 0px 0px 8px #e5e6e9;
+  box-shadow: 0px 0px 8px #141414;
+  justify-content: center;
+  border-radius: 2px;
 }
 .label-search {
   text-align: left;
 }
 .search-section input {
   width: 85%;
-  height: 30px;
-  border: 1px solid #d8dce0;
 }
 button {
   margin: 10px;
@@ -59,4 +69,9 @@ button {
 button:hover {
   background-color: rgba(253, 253, 253, 0.849);
   cursor: pointer;
+}
+input {
+  height: 30px;
+  border: 1px solid #d8dce0;
+  border-radius: 2px;
 }
