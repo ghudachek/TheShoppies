@@ -4,7 +4,7 @@ import GetMovies from "./MovieList/GetMovies";
 function App() {
   return (
     <div className="App">
-      <h1>OMDB Library</h1>
+      <h1 id="shoppies">The Shoppies</h1>
       <GetMovies />
     </div>
   );

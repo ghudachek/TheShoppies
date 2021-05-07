@@ -10,7 +10,6 @@ const Movies = (props) => {
         return props.setNominees((curr) => [...curr, props.movie.Title]);
       }
     } else if (props.nominees.length === 5) {
-      console.log("you  made it to five");
       props.togglePopup();
     }
   }

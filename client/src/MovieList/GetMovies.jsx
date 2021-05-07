@@ -41,8 +41,12 @@ const GetMovies = () => {
   return (
     <>
       <div className="search-section">
-        <label htmlFor="input">Movie Title</label>
-        <input type="text" className="input" placeholder="Movie Title" />
+        <label className="label-search" htmlFor="input">
+          Movie title
+        </label>
+        <br />
+        <input type="text" className="input" placeholder="search" />
+
         <button
           className="search"
           onClick={(e) => {
@@ -51,13 +55,12 @@ const GetMovies = () => {
             setInput(document.querySelector(".input"));
           }}
         >
-          Search
+          <i class="fas fa-search"> </i> Search
         </button>
       </div>
       <section className="box">
         <div className="movie-list">
-          <h1>Movie List</h1>
-          <h2>Results for {input?.value}</h2>
+          <h2>Results for "{input ? input.value : "..."}"</h2>
           <ul className="movies">
             {movieArr?.map((movie, index) => {
               return (
@@ -79,8 +82,7 @@ const GetMovies = () => {
             <Popup
               content={
                 <>
-                  <b>Design your Popup</b>
-                  <p>You've reached you limit of 5 nominations!</p>
+                  <b>You've reached your limit of 5 nominations!</b>
                 </>
               }
               handleClose={togglePopup}
@@ -88,7 +90,7 @@ const GetMovies = () => {
           )}
         </div>
         <div className="nominee-list">
-          <h1>Your Nominees</h1>
+          <h1>Nominations</h1>
           <ul className="nominees">
             <NomineeList nominees={nominees} setNominees={setNominees} />
           </ul>
