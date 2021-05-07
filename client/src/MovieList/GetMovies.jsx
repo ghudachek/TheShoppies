@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NomineeList from "../NomineeList/NomineeList";
 import Movies from "../Movies";
 import Popup from "../Popup";
@@ -27,6 +27,16 @@ const GetMovies = () => {
       console.error(err);
     }
   }
+
+  useEffect(() => {
+    movieArr.map((movie) => {
+      if (nominees.includes(movie.Title) === false) {
+        document.querySelector(`.${movie.imdbID}`).disabled = false;
+      } else {
+        document.querySelector(`.${movie.imdbID}`).disabled = true;
+      }
+    });
+  }, [nominees, setNominees, setMovieArr, movieArr]);
 
   return (
     <>
