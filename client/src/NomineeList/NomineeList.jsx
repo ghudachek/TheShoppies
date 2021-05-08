@@ -2,13 +2,11 @@ import React from "react";
 
 const NomineeList = (props) => {
   function removeNom(ind) {
-    if (ind === 0) {
-      props.setNominees(props.nominees.splice(1));
-    } else {
-      props.setNominees(
-        props.nominees.splice(0, ind).concat(props.nominees.slice(ind))
-      );
-    }
+    props.setNominees(
+      props.nominees.filter((nom) => {
+        return props.nominees.indexOf(nom) !== ind;
+      })
+    );
   }
 
   function CheckStorage() {
@@ -17,7 +15,7 @@ const NomineeList = (props) => {
       console.log(stored.split(" "));
     }
   }
-  CheckStorage();
+  //CheckStorage();
   return props.nominees?.map((nom, index) => (
     <li key={nom}>
       {nom}

@@ -59,7 +59,7 @@ const GetMovies = () => {
             setInput(document.querySelector(".input"));
           }}
         >
-          <i class="fas fa-search"> </i> Search
+          <i className="fas fa-search"> </i> Search
         </button>
       </div>
       <section className="box">
