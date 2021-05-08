@@ -28,6 +28,16 @@ const GetMovies = () => {
       console.error(err);
     }
   }
+  function CheckStorage() {
+    if (localStorage.getItem("nominees").length !== 0) {
+      let stored = localStorage.getItem("nominees");
+      setNominees(stored.split(","));
+      //console.log(nominees);
+    }
+  }
+  useEffect(() => {
+    CheckStorage();
+  }, [window.onbeforeunload]);
 
   //Check for disabling buttons
   useEffect(() => {
