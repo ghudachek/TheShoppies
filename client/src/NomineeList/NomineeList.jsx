@@ -2,9 +2,7 @@ import React from "react";
 
 const NomineeList = (props) => {
   function removeNom(ind) {
-    console.log(ind);
     if (ind === 0) {
-      console.log(props.nominees.slice(1));
       props.setNominees(props.nominees.splice(1));
     } else {
       props.setNominees(
@@ -13,7 +11,14 @@ const NomineeList = (props) => {
     }
   }
 
-  return props.nominees.map((nom, index) => (
+  function CheckStorage() {
+    if (localStorage.getItem("nominees").length !== 0) {
+      let stored = localStorage.getItem("nominees");
+      console.log(stored.split(" "));
+    }
+  }
+  CheckStorage();
+  return props.nominees?.map((nom, index) => (
     <li key={nom}>
       {nom}
       <button

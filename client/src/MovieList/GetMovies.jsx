@@ -19,17 +19,20 @@ const GetMovies = () => {
     setIsOpen(!isOpen);
   };
 
+  //GET Movies
   async function getMovies(input) {
     try {
       const resp = await axios.get(`${BASE_URL}s=${input.value}`);
-      console.log(resp.data.Search);
       setMovieArr(resp.data.Search);
     } catch (err) {
       console.error(err);
     }
   }
 
+  //Check for disabling buttons
   useEffect(() => {
+    localStorage.setItem("nominees", nominees);
+
     movieArr?.map((movie) => {
       if (nominees.includes(movie.Title) === false) {
         document.querySelector(`.${movie.imdbID}`).disabled = false;
