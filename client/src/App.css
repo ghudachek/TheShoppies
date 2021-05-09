@@ -179,3 +179,23 @@ input {
     flex-direction: column;
   }
 }
+/* Iphone screen sizes */
+@media screen and (max-width: 400px) {
+  .popcorn {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+  }
+  .nom-form {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+  }
+  .send {
+    margin-top: 10px;
+  }
+}
