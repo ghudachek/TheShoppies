@@ -1,5 +1,5 @@
 import React from "react";
-import { baseURL, config } from "./index";
+import { baseURL, config } from "../services/index";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Popup from "../Popup";
@@ -33,15 +33,15 @@ const Form = (props) => {
 
   return (
     <form className="nom-form" onSubmit={handleSubmit}>
-      <label htmlFor="name">Your Name</label>
+      <label htmlFor="name">Your Name:</label>
       <input
         className="name-input"
         name="name"
-        placeholder="or Anon"
+        placeholder="or Anonymous"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <button>Send/Save Nominations</button>
+      <button className="send">Send in Nominations</button>
 
       {isOpen && (
         <Popup

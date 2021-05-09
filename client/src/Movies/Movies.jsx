@@ -13,11 +13,13 @@ const Movies = (props) => {
     }
   }
   return (
-    <li key={props.movie.imdbID}>
+    <div className="movies-opt" key={props.movie.imdbID}>
+      <img className="posters" src={props.movie.Poster} />
       {props.movie.Title}({props.movie.Year})
       <button
         key={props.movie.Title}
-        className={props.movie.imdbID}
+        className="nominate-btn"
+        id={props.movie.imdbID}
         onClick={(e) => {
           e.preventDefault();
           addNom();
@@ -25,7 +27,7 @@ const Movies = (props) => {
       >
         Nominate
       </button>
-    </li>
+    </div>
   );
 };
 

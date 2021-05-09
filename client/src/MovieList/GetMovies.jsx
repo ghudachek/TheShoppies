@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import NomineeList from "../NomineeList/NomineeList";
-import Movies from "../Movies";
-import Form from "../services/Form";
+import Movies from "../Movies/Movies";
+import Form from "../SendForm/Form";
 import Popup from "../Popup";
 
 const GetMovies = () => {
@@ -28,16 +28,17 @@ const GetMovies = () => {
       console.error(err);
     }
   }
+
+  //Load Stored Nominations if any
   function CheckStorage() {
     if (localStorage.getItem("nominees").length !== 0) {
       let stored = localStorage.getItem("nominees");
       setNominees(stored.split(","));
-      //console.log(nominees);
     }
   }
   useEffect(() => {
     CheckStorage();
-  }, [window.onbeforeunload]);
+  }, []);
 
   //Check for disabling buttons
   useEffect(() => {
@@ -45,37 +46,37 @@ const GetMovies = () => {
 
     movieArr?.map((movie) => {
       if (nominees.includes(movie.Title) === false) {
-        document.querySelector(`.${movie.imdbID}`).disabled = false;
+        return (document.querySelector(`#${movie.imdbID}`).disabled = false);
       } else {
-        document.querySelector(`.${movie.imdbID}`).disabled = true;
+        return (document.querySelector(`#${movie.imdbID}`).disabled = true);
       }
     });
   }, [nominees, setNominees, setMovieArr, movieArr]);
 
   return (
     <>
-      <div className="search-section">
+      <form
+        className="search-section"
+        onSubmit={(e) => {
+          e.preventDefault();
+          getMovies(document.querySelector(".input"));
+          setInput(document.querySelector(".input"));
+        }}
+      >
         <label className="label-search" htmlFor="input">
-          Movie title
+          <b> Movie Title</b>
         </label>
         <br />
         <input type="text" className="input" placeholder="search" />
 
-        <button
-          className="search"
-          onClick={(e) => {
-            e.preventDefault();
-            getMovies(document.querySelector(".input"));
-            setInput(document.querySelector(".input"));
-          }}
-        >
-          <i className="fas fa-search"> </i> Search
+        <button className="search">
+          <i className="fas fa-search"> </i> <b>Search</b>
         </button>
-      </div>
+      </form>
       <section className="box">
         <div className="movie-list">
           <h2>Results for "{input ? input.value : "..."}"</h2>
-          <ul className="movies">
+          <div className="movies">
             {movieArr?.map((movie, index) => {
               return (
                 <Movies
@@ -89,7 +90,7 @@ const GetMovies = () => {
                 />
               );
             })}
-          </ul>
+          </div>
         </div>
         <div>
           {isOpen && (
@@ -104,7 +105,7 @@ const GetMovies = () => {
           )}
         </div>
         <div className="nominee-list">
-          <h1>Nominations</h1>
+          <h2>Nominations</h2>
           <ul className="nominees">
             <NomineeList nominees={nominees} setNominees={setNominees} />
           </ul>

@@ -13,6 +13,7 @@ const NomineeList = (props) => {
     <li key={nom}>
       {nom}
       <button
+        className="remove"
         key={nom}
         onClick={(e) => {
           e.preventDefault();

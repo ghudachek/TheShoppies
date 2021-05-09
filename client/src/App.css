@@ -10,6 +10,34 @@ header {
   display: flex;
   margin-left: 10px;
 }
+button {
+  min-height: 35px;
+  min-width: 80px;
+  color: red;
+  border: none;
+  background-color: transparent;
+}
+h2 {
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d8dce0;
+}
+li {
+  list-style-type: decimal;
+  text-align: left;
+  margin: 15px;
+}
+button:hover {
+  cursor: pointer;
+}
+input {
+  margin-top: 5px;
+  align-self: center;
+  height: 30px;
+  border: 1px solid #d8dce0;
+  border-radius: 5px;
+}
+/* Header/Title */
 .popcorn {
   width: 80px;
 }
@@ -18,25 +46,7 @@ header {
   color: white;
   font-size: 30px;
 }
-li {
-  list-style-type: decimal;
-}
-.box {
-  display: flex;
-  justify-content: center;
-}
-
-.nominee-list,
-.movie-list {
-  min-width: 35vw;
-  margin: 20px;
-  background: rgba(255, 255, 255, 0.616);
-  box-shadow: 0px 0px 8px #141414;
-  text-align: left;
-  padding-left: 25px;
-  border-radius: 2px;
-}
-
+/* Search Section */
 .search-section {
   background-color: white;
   background-image: url("https://images.unsplash.com/photo-1512149074996-e923ac45be6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
@@ -58,20 +68,114 @@ li {
 .search-section input {
   width: 85%;
 }
-button {
-  margin: 10px;
-  min-height: 35px;
-  min-width: 80px;
-  border-radius: 3px;
-  background-color: rgba(224, 224, 224, 0.849);
-  border: 1px solid rgba(216, 218, 219, 0.671);
+.search {
+  color: white;
 }
-button:hover {
-  background-color: rgba(253, 253, 253, 0.849);
-  cursor: pointer;
+.search:hover {
+  transform: scale(1.25);
+  text-shadow: 0px 0px 5px #b8973d;
 }
-input {
-  height: 30px;
-  border: 1px solid #d8dce0;
+.input {
+  padding-left: 10px;
+}
+/* Movie List */
+.box {
+  display: flex;
+  justify-content: center;
+}
+.posters {
+  width: 100px;
+  align-self: center;
+}
+.nominate-btn {
+  width: fit-content;
+  align-self: center;
+}
+.movies-opt {
+  margin: 15px;
+}
+.movies {
+  display: flex;
+  overflow: scroll;
+  justify-content: space-between;
+}
+.nominee-list,
+.movie-list {
+  min-width: 45vw;
+  margin: 20px;
+  background: rgba(93, 91, 91, 0.377);
+  color: white;
+  box-shadow: 0px 0px 8px #141414;
+  text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
   border-radius: 2px;
+}
+
+.nominate-btn {
+  color: black;
+  margin-top: 10px;
+  background-color: rgb(231, 231, 231);
+  border-radius: 3px;
+}
+.nominate-btn:hover {
+  background-color: rgba(233, 231, 231, 0.856);
+}
+
+/* Nominations */
+.nom-form {
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+.nom-form label {
+  align-self: center;
+}
+.name-input {
+  margin: 0px;
+  margin-left: 10px;
+  border-color: rgb(80, 78, 78);
+  padding-left: 10px;
+}
+.send {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: 20px;
+  justify-self: center;
+  align-self: center;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(31, 30, 30, 0.877);
+}
+.send:hover {
+  background-color: rgba(121, 116, 116, 0.795);
+}
+.remove:hover {
+  text-decoration: underline;
+}
+
+/* Smaller screens */
+@media screen and (max-width: 850px) {
+  .search-section input {
+    width: 65%;
+  }
+  .nominee-list,
+  .movie-list {
+    font-size: 14px;
+  }
+
+  button {
+    min-width: 60px;
+    min-height: 30px;
+    font-size: 12px;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+  }
 }
