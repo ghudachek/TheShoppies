@@ -1,4 +1,6 @@
 # TheShoppies
+[Check out the Live Site!](https://the-shoppies-project.netlify.app/)
+
 Movie Awards Nominations site using OMBd API
 
 **Updates/Future Ideas:**
